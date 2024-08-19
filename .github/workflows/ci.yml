@@ -1,0 +1,42 @@
+name: Run Tests on Staging
+
+# Workflow wird ausgelöst bei einem Push in den "staging"-Branch
+on:
+  push:
+    branches:
+      - staging
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: backend-server
+
+    steps:
+      # 1. Checkout Repository
+      - name: Check out the repository
+        uses: actions/checkout@v3
+
+      # 2. Setze Python Environment auf
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'  # Ersetze '3.x' durch die benötigte Python-Version, z.B. '3.8'
+
+      # 3. Installiere und upgrade pip
+      - name: Upgrade pip
+        run: |
+          python -m ensurepip
+          python -m pip install --upgrade pip
+
+      # 4. Installiere Python Dependencies
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      # 5. Führe die Tests aus
+      - name: Run tests
+        run: |
+          pytest  # Falls du Pytest nutzt
+          # oder ein anderes Test-Framework wie unittest oder nose
