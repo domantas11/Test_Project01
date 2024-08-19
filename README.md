@@ -37,7 +37,7 @@ Start a mongoDB instance, either installing it on your pc or using the docker pl
 
 >Note: **Update the MONGO_URL inside ``/server/.env`` accordingly, if necessary!**
 
-### Run the Backend Server and Website
+### Run the Backend Server and Website!
 To run the backend (Flask) app:
 
 
