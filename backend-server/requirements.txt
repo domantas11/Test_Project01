@@ -6,4 +6,4 @@ mongoengine==0.28.2
 python-dotenv==1.0.1
 Werkzeug==3.0.3
 pymongo==4.8.0
-pytest 8.3.2
+pytest==8.3.2
